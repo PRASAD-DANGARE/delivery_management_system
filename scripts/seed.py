@@ -6,7 +6,7 @@ from app.models.order import Order, OrderStatus
 from app.models.warehouse import Warehouse
 from app.models.base import Base
 
-# Create tables if not already present
+# Create table if not already present
 Base.metadata.create_all(bind=engine)
 
 fake = Faker()
@@ -53,4 +53,4 @@ if __name__ == "__main__":
     seed_warehouses()
     seed_agents_per_warehouse()
     seed_orders_per_agent()
-    print("✅ Database seeded successfully")
+    print("Database seeded successfully")
