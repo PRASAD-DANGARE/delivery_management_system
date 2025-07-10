@@ -1,4 +1,4 @@
-# 🛵 Delivery Management System
+# 🚚 Delivery Management System
 
 A FastAPI-based system to assign delivery orders to agents while optimizing time, distance, and cost.
 
@@ -38,14 +38,14 @@ Efficiently assign delivery **orders** to **agents** each morning based on const
 
 ```bash
 python -m venv venv
-source venv/bin/activate  # or venv\Scripts\activate on Windows
+venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn main:app --reload
 ```
 
 ---
 
-## 🔄 Background Job (via Celery)
+## 🔄 Background Job (via Celery optional)
 
 ```bash
 celery -A app.background_tasks.worker worker --beat --scheduler django_celery_beat.schedulers:DatabaseScheduler
@@ -86,7 +86,6 @@ python app/background_tasks/allocation.py
 - Go to [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 - Use `/orders/` POST to create order
 - Use `/orders/` GET to list orders
-- Add `/orders/summary` for allocation stats (optional)
 
 ### ✅ Via Python script
 
@@ -129,15 +128,4 @@ delivery_management_system/
 
 ---
 
-## 📌 TODO / Bonus Ideas
-
-- ⏰ Automate allocation with APScheduler/Celery
-- 📊 Add `/metrics` route for cost/agent stats
-- 🧪 Add `pytest` test coverage
-- 📤 Export results to CSV or JSON
-
 ---
-
-## 👨‍💻 Author
-
-Made with ❤️ for backend system design evaluations.
